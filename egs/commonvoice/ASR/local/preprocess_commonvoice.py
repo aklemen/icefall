@@ -67,6 +67,9 @@ def normalize_text(utt: str, language: str) -> str:
             repl="",
             string=utt,
         )
+    elif language == "sl":
+        slovene_chars = "a-zA-ZčšžČŠŽ"
+        return re.sub(r"[^{0}\s]".format(slovene_chars), "", utt)
     else:
         raise NotImplementedError(
             f"""
